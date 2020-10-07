@@ -1,0 +1,14 @@
+set -x
+PROJ=mynewdsfeed-io
+APP=$PROJ
+TAG="gcr.io/$PROJ/$APP"
+docker build --tag $TAG $1
+docker push $TAG
+gcloud run deploy "$APP" \
+  --image "$TAG"              \
+  --platform "managed"        \
+  --region "us-central1"      \
+  --project "$PROJ"           \
+  --concurrency 5             \
+  --memory=1Gi                \
+  --allow-unauthenticated

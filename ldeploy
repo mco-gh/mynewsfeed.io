@@ -1,0 +1,5 @@
+set -x
+TAG="gcr.io/mynewsfeed-io/mynewsfeed"
+docker build --tag $TAG .
+docker push $TAG
+docker run -d -p 8080:8080 $TAG
