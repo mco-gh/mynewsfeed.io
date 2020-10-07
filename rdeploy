@@ -1,8 +1,8 @@
 set -x
-PROJ=mynewdsfeed-io
+PROJ=mynewsfeed-io
 APP=$PROJ
 TAG="gcr.io/$PROJ/$APP"
-docker build --tag $TAG $1
+docker build --tag $TAG .
 docker push $TAG
 gcloud run deploy "$APP" \
   --image "$TAG"              \
