@@ -7,7 +7,6 @@ app = Flask(__name__)
 @app.route('/')
 def handler():
   cfg_data = load_cfg()
-  print(cfg_data)
   articles = get_news()
   filtered_articles = []
   for i in articles:
