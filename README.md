@@ -1,2 +1,2 @@
 # mynewsfeed.io
-mynewsfeed.io new curation website
+mynewsfeed.io news curation website
